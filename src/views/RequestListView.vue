@@ -7,7 +7,3 @@ import Welcome from '../components/Welcome.vue';
     <Welcome />
   </main>
 </template>
-
-<style lang="scss">
-
-</style>
