@@ -1,6 +1,6 @@
-# supportApp
+## Support App
+Una startup nos ha solicitado una plataforma web para que sus empleados puedan solicitar un soporte técnico a su departamento informático en caso de necesidad.
 
-This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
 
@@ -33,3 +33,9 @@ npm run build
 ```sh
 npm run test:unit
 ```
+## Tools
+Vue 3
+Vue Pinia
+Vue Router
+Sass
+Bootstrap
