@@ -83,7 +83,7 @@ const comments = ref([
 <style scoped>
 
 #card1, #card2, #cardreview{
-  background-color: rgb(207, 207, 207);
+  background-color: rgb(247, 247, 247);
 }
 
 
