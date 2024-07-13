@@ -18,7 +18,7 @@
               <RouterLink to="/" class="nav-link">Home</RouterLink>
             </li>
             <li>
-              <RouterLink to="/requests" class="nav-link">All requests</RouterLink>
+              <RouterLink to="/request-list" class="nav-link">All requests</RouterLink>
             </li>
             <li>
               <RouterLink to="/new-request" class="nav-link">New Request</RouterLink>

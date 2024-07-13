@@ -13,7 +13,7 @@ const router = createRouter({
       name: "home",
       component: HomeView,
     },
-    { path: '/requests', 
+    { path: '/request-list', 
       name: 'RequestList', 
       component: RequestList 
     },
