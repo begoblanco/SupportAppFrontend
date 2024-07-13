@@ -1,6 +1,6 @@
 <template>
     <nav id = "nav" class="navbar bg-dark text-light navbar-expand-lg navbar-dark sticky-top">
-      <div class="container-fluid">
+      <div class="container-fluid justify-content-end">
         <button
           class="navbar-toggler"
           type="button"
@@ -42,5 +42,6 @@
  <style lang="scss" scoped>
  .nav-link{
   text-align: center;
+  color: rgb(241, 241, 241);
  }
  </style>
