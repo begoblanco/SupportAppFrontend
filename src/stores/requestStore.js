@@ -43,7 +43,7 @@ export const useRequestStore = defineStore({
 
     async updateRequest(id, updatedRequest) {
       try {
-        const response = await fetch(`/api/support-requests/update/${id}`, {
+        const response = await fetch(`http://localhost:8080/api/support-requests/update/${id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ export const useRequestStore = defineStore({
 
     async deleteRequest(id) {
       try {
-        const response = await fetch(`/api/support-requests/delete/${id}`, {
+        const response = await fetch(`http://localhost:8080/api/support-requests/delete/${id}`, {
           method: 'DELETE',
         });
         if (!response.ok) {

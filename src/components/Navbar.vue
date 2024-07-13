@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar bg-dark text-light navbar-expand-lg navbar-dark">
+    <nav id = "nav" class="navbar bg-dark text-light navbar-expand-lg navbar-dark sticky-top">
       <div class="container-fluid">
         <button
           class="navbar-toggler"
@@ -12,11 +12,17 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+
+        <div class="collapse navbar-collapse justify-content-left" id="navbarNav">
           <ul class="navbar-nav">
             <li>
               <RouterLink to="/" class="nav-link">Home</RouterLink>
             </li>
+          </ul>
+        </div>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
             <li>
               <RouterLink to="/request-list" class="nav-link">All requests</RouterLink>
             </li>
@@ -32,3 +38,9 @@
       </div>
     </nav>
   </template>
+
+ <style lang="scss" scoped>
+ .nav-link{
+  text-align: center;
+ }
+ </style>

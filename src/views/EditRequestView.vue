@@ -1,9 +1,9 @@
 <script setup>
-import Welcome from '../components/Welcome.vue';
+import EditRequestForm from '../components/EditRequestForm.vue';
 </script>
 
 <template>
   <main>
-    <Welcome />
+    <EditRequestForm />
   </main>
 </template>
