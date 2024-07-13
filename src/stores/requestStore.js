@@ -11,7 +11,7 @@ export const useRequestStore = defineStore({
   actions: {
     async fetchAllRequests() {
       try {
-        const response = await fetch('/api/support-requests/all');
+        const response = await fetch('http://localhost:8080/api/support-requests/all');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -22,9 +22,9 @@ export const useRequestStore = defineStore({
       }
     },
 
-    async addRequest(newRequest) {
+   async addRequest(newRequest) {
       try {
-        const response = await fetch('/api/support-requests/add', {
+        const response = await fetch('http://localhost:8080/api/support-requests/add', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -76,4 +76,5 @@ export const useRequestStore = defineStore({
       }
     },
   },
+
 });

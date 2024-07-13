@@ -1,9 +1,9 @@
 <script setup>
-import Welcome from '../components/Welcome.vue';
+import RequestList from '@/components/RequestList.vue';
 </script>
 
 <template>
   <main>
-    <Welcome />
+    <RequestList />
   </main>
 </template>

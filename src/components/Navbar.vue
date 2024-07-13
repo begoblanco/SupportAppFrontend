@@ -21,11 +21,11 @@
               <RouterLink to="/requests" class="nav-link">All requests</RouterLink>
             </li>
             <li>
-              <RouterLink to="/Filter" class="nav-link">New Request</RouterLink>
+              <RouterLink to="/new-request" class="nav-link">New Request</RouterLink>
             </li>
             <li
             >
-              <RouterLink to="/Favorites" class="nav-link">Edit Request</RouterLink>
+              <RouterLink to="/edit-request/:id" class="nav-link">Edit Request</RouterLink>
             </li>
           </ul>
         </div>
