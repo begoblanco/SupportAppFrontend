@@ -42,6 +42,7 @@
  <style lang="scss" scoped>
  .nav-link{
   text-align: center;
-  color: rgb(241, 241, 241);
- }
+  color: #f6e9e9;
+  }
+ 
  </style>

@@ -14,6 +14,6 @@ import Welcome from '../components/Welcome.vue';
  h1{
   text-align: center;
   margin-top: 5%;
-  color: rgb(58, 58, 58);
+  color: #f6e9e9;
  }
 </style>
