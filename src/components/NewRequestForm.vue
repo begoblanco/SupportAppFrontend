@@ -30,8 +30,8 @@ const resetForm = () => {
 
 <template>
   <div class="container">
-    <div class="card">
-      <div class="card-header">
+    <div class="card no-border">
+      <div class="card-header no-border">
         <h5 class="card-title">New Request Form</h5>
       </div>
       <div class="card-body">
@@ -79,25 +79,78 @@ const resetForm = () => {
               required
             />
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <button type="reset" class="btn btn-secondary">Reset</button>
-          <router-link to="/request-list" class="btn btn-link"
-            >Cancel</router-link
-          >
+          <button type="submit" class="btn btn-primary m-1">Submit</button>
+          <button type="reset" class="btn btn-secondary m-1">Reset</button>
+          <router-link to="/request-list" class="btn btn-link">Cancel</router-link>
         </form>
       </div>
     </div>
   </div>
 </template>
 
-<style lang="scss">
+
+<style lang="scss" scoped>
+.container {
+  margin-top: 20px;
+}
 
 .card {
   border-radius: 10px;
-  width: 100%;
-  max-width: 600px;
-  margin-inline: auto;
-  margin-top: 20%;
-  margin-bottom: 20%;
+  background-color: #635d5d;
+  color: #f6e9e9;
+}
+
+.card-header {
+  background-color: #222529;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  margin-bottom: 0;
+}
+
+.card-text {
+  margin-bottom: 0.5rem;
+}
+
+.no-border {
+  border: none;
+  box-shadow: none;
+}
+
+.form-label {
+  color: #f6e9e9;
+}
+
+.form-control {
+  background-color: #f6e9e9;
+  border: none;
+  color: #635d5d;
+}
+
+.btn-primary {
+  background-color: #f6e9e9;
+  color: #635d5d;
+  border: none;
+}
+
+.btn-secondary {
+  background-color: #222529;
+  color: #f6e9e9;
+  border: none;
+}
+
+.btn-link {
+  color: #f6e9e9;
+}
+
+@media (max-width: 576px) {
+  .card {
+    margin-bottom: 20px;
+  }
 }
 </style>
