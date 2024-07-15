@@ -1,45 +1,48 @@
 <script setup>
-import { ref, onMounted } from "vue";
-import { useRoute, useRouter } from "vue-router";
-import { useRequestStore } from "../stores/requestStore";
+import { ref, onMounted } from 'vue';
+import { useRequestStore } from '../stores/requestStore';
+import { useRouter } from 'vue-router';
 
-const route = useRoute();
-const router = useRouter();
-const requestStore = useRequestStore();
-const requestId = route.params.id;
-
-const editRequest = ref({
-  requesterName: "",
-  topic: "",
-  description: "",
-  date: "",
+const props = defineProps({
+  id: String,
 });
 
-onMounted(async () => {
-  await requestStore.fetchAllRequests();
-  const request = requestStore.requests.find((req) => req.id === requestId);
-  if (request) {
-    editRequest.value = { ...request };
-  } else {
-    console.error("Request not found");
-    router.push("/request-list");
+const emit = defineEmits(['cancel']);
+
+const router = useRouter();
+const requestStore = useRequestStore();
+const request = ref({
+  requesterName: '',
+  topic: '',
+  description: '',
+  date: '',
+});
+
+onMounted(() => {
+  const selectedRequest = requestStore.getRequestById(props.id);
+  if (selectedRequest) {
+    request.value = { ...selectedRequest };
   }
 });
 
 const handleSubmit = async () => {
   try {
-    await requestStore.updateRequest(requestId, editRequest.value);
-    router.push("/request-list");
+    await requestStore.updateRequest(request.value.id, request.value);
+    emit('cancel');
   } catch (error) {
-    console.error("Error updating request:", error);
+    console.error('Error al enviar los cambios:', error);
   }
+};
+
+const cancelEdit = () => {
+  emit('cancel');
 };
 </script>
 
 <template>
-  <div class="container">
-    <div class="card">
-      <div class="card-header">
+  <div class="container mt-4">
+    <div class="card no-border">
+      <div class="card-header no-border">
         <h5 class="card-title">Edit Request Form</h5>
       </div>
       <div class="card-body">
@@ -47,7 +50,7 @@ const handleSubmit = async () => {
           <div class="mb-3">
             <label for="requesterName" class="form-label">Requester Name</label>
             <input
-              v-model="editRequest.requesterName"
+              v-model="request.requesterName"
               type="text"
               class="form-control"
               id="requesterName"
@@ -58,7 +61,7 @@ const handleSubmit = async () => {
           <div class="mb-3">
             <label for="topic" class="form-label">Topic</label>
             <input
-              v-model="editRequest.topic"
+              v-model="request.topic"
               type="text"
               class="form-control"
               id="topic"
@@ -69,7 +72,7 @@ const handleSubmit = async () => {
           <div class="mb-3">
             <label for="description" class="form-label">Description</label>
             <textarea
-              v-model="editRequest.description"
+              v-model="request.description"
               class="form-control"
               id="description"
               rows="3"
@@ -80,30 +83,17 @@ const handleSubmit = async () => {
           <div class="mb-3">
             <label for="date" class="form-label">Date</label>
             <input
-              v-model="editRequest.date"
+              v-model="request.date"
               type="date"
               class="form-control"
               id="date"
               required
             />
           </div>
-          <button type="submit" class="btn btn-primary">Update</button>
-          <router-link to="/request-list" class="btn btn-secondary"
-            >Cancel</router-link
-          >
+          <button type="submit" class="btn btn-primary m-1">Submit</button>
+          <button type="button" class="btn btn-secondary m-1" @click="cancelEdit">Cancel</button>
         </form>
       </div>
     </div>
   </div>
 </template>
-
-<style lang="scss">
-.card {
-  border-radius: 10px;
-  width: 100%;
-  max-width: 600px;
-  margin-inline: auto;
-  margin-top: 20%;
-  margin-bottom: 20%;
-}
-</style>

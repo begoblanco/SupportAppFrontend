@@ -1,9 +1,7 @@
-// src/store/requestStore.js
-
-import { defineStore } from 'pinia';
+import { defineStore } from "pinia";
 
 export const useRequestStore = defineStore({
-  id: 'request',
+  id: "request",
   state: () => ({
     requests: [],
     error: null,
@@ -11,9 +9,11 @@ export const useRequestStore = defineStore({
   actions: {
     async fetchAllRequests() {
       try {
-        const response = await fetch('http://localhost:8080/api/support-requests/all');
+        const response = await fetch(
+          "http://localhost:8080/api/support-requests/all"
+        );
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
         const data = await response.json();
         this.requests = data;
@@ -22,17 +22,20 @@ export const useRequestStore = defineStore({
       }
     },
 
-   async addRequest(newRequest) {
+    async addRequest(newRequest) {
       try {
-        const response = await fetch('http://localhost:8080/api/support-requests/add', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(newRequest),
-        });
+        const response = await fetch(
+          "http://localhost:8080/api/support-requests/add",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newRequest),
+          }
+        );
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
         const createdRequest = await response.json();
         this.requests.push(createdRequest);
@@ -43,19 +46,26 @@ export const useRequestStore = defineStore({
 
     async updateRequest(id, updatedRequest) {
       try {
-        const response = await fetch(`http://localhost:8080/api/support-requests/update/${id}`, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(updatedRequest),
-        });
+        const response = await fetch(
+          `http://localhost:8080/api/support-requests/update/${id}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedRequest),
+          }
+        );
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
-        const updatedRequestIndex = this.requests.findIndex(req => req.id === id);
-        if (updatedRequestIndex !== -1) {
-          this.requests[updatedRequestIndex] = updatedRequest;
+        const updatedRequestData = await response.json();
+
+        const index = this.requests.findIndex((req) => req.id === id);
+        if (index !== -1) {
+          this.requests[index] = updatedRequestData;
+        } else {
+          throw new Error(`Request with id ${id} not found in local state.`);
         }
       } catch (error) {
         this.error = error.message;
@@ -64,17 +74,22 @@ export const useRequestStore = defineStore({
 
     async deleteRequest(id) {
       try {
-        const response = await fetch(`http://localhost:8080/api/support-requests/delete/${id}`, {
-          method: 'DELETE',
-        });
+        const response = await fetch(
+          `http://localhost:8080/api/support-requests/delete/${id}`,
+          {
+            method: "DELETE",
+          }
+        );
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
-        this.requests = this.requests.filter(req => req.id !== id);
+        this.requests = this.requests.filter((req) => req.id !== id);
       } catch (error) {
         this.error = error.message;
       }
     },
+    getRequestById(id) {
+      return this.requests.find((req) => req.id === id);
+    },
   },
-
 });

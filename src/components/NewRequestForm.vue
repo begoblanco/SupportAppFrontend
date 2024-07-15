@@ -29,7 +29,7 @@ const resetForm = () => {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container mt-4">
     <div class="card no-border">
       <div class="card-header no-border">
         <h5 class="card-title">New Request Form</h5>
@@ -90,8 +90,10 @@ const resetForm = () => {
 
 
 <style lang="scss" scoped>
+
+
 .container {
-  margin-top: 20px;
+  margin-top: 0;
 }
 
 .card {
@@ -148,9 +150,4 @@ const resetForm = () => {
   color: #f6e9e9;
 }
 
-@media (max-width: 576px) {
-  .card {
-    margin-bottom: 20px;
-  }
-}
 </style>

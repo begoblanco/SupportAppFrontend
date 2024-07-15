@@ -3,13 +3,13 @@ import NewRequestForm from '../components/NewRequestForm.vue';
 </script>
 
 <template>
-  <main>
-    <h2>Request Form</h2>
+  <h2>Request Form</h2>
+  <main>    
     <NewRequestForm/>
   </main>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
  h2{
   text-align: center;
   margin-top: 5%;
