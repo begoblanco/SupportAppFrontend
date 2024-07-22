@@ -41,7 +41,8 @@ const cancelEdit = () => {
 
 <template>
   <div class="container mt-4">
-    <div class="card no-border">
+    <h2>Edit Request Form</h2>
+    <div class="card no-border form-card mt-4" >
       <div class="card-header no-border">
         <h5 class="card-title">Edit Request Form</h5>
       </div>
@@ -97,3 +98,82 @@ const cancelEdit = () => {
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+
+h2 {
+  color: #f6e9e9;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  flex-direction: column;
+}
+
+.card {
+  border-radius: 10px;
+  background-color: #635d5d;
+  color: #f6e9e9;
+}
+
+.card-header {
+  background-color: #222529;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  margin-bottom: 0;
+}
+
+.card-text {
+  margin-bottom: 0.5rem;
+}
+
+.no-border {
+  border: none;
+  box-shadow: none;
+}
+
+.form-label {
+  color: #f6e9e9;
+}
+
+.form-control {
+  background-color: #f6e9e9;
+  border: none;
+  color: #635d5d;
+}
+
+.btn-primary {
+  background-color: #f6e9e9;
+  color: #635d5d;
+  border: none;
+}
+
+.btn-secondary {
+  background-color: #222529;
+  color: #f6e9e9;
+  border: none;
+}
+
+.btn-link {
+  color: #f6e9e9;
+}
+
+@media (min-width: 768px) {
+  .form-card {
+    max-width: 600px;
+    width: 100%;
+  }
+}
+
+</style>

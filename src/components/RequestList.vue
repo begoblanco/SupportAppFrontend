@@ -11,10 +11,9 @@ export default {
       requestStore.fetchAllRequests();  
     });
 
-    const formatDate = (dateString) => {
-      const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-      return new Date(dateString).toLocaleDateString(undefined, options);
-    };
+    const formatDate = (date) => {
+  return new Date(date).toLocaleDateString('en-GB');
+};
 
     return { requests, formatDate };
   },
@@ -24,7 +23,7 @@ export default {
 <template>
   <div class="container mt-4">
     <h2>Request List</h2>
-    <div class="row">
+    <div class="row mt-4">
       <div class="col-12 col-sm-6 col-md-4 mb-4" v-for="request in requests" :key="request.id">
         <div class="card no-border h-100">
           <div class="card-header no-border">
@@ -44,6 +43,8 @@ export default {
 <style lang="scss" scoped>
 h2{
   color: #f6e9e9;
+  text-align: center;
+  margin-top: 5%;
 }
 
 .card {

@@ -13,12 +13,14 @@ const requestStore = useRequestStore();
 
 const handleSubmit = async () => {
   try {
+    console.log("Submitting request:", newRequest.value);
     await requestStore.addRequest(newRequest.value);
     resetForm();
   } catch (error) {
     console.error("Error al enviar la solicitud:", error);
   }
 };
+
 
 const resetForm = () => {
   newRequest.value.requesterName = "";
@@ -30,7 +32,8 @@ const resetForm = () => {
 
 <template>
   <div class="container mt-4">
-    <div class="card no-border">
+    <h2>Request Form</h2>
+    <div class="card no-border form-card mt-4">
       <div class="card-header no-border">
         <h5 class="card-title">New Request Form</h5>
       </div>
@@ -88,12 +91,19 @@ const resetForm = () => {
   </div>
 </template>
 
-
 <style lang="scss" scoped>
-
+h2 {
+  color: #f6e9e9;
+  text-align: center;
+  margin-top: 5%;
+}
 
 .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 0;
+  flex-direction: column;
 }
 
 .card {
@@ -150,4 +160,10 @@ const resetForm = () => {
   color: #f6e9e9;
 }
 
+@media (min-width: 768px) {
+  .form-card {
+    max-width: 600px;
+    width: 100%;
+  }
+}
 </style>
