@@ -6,7 +6,7 @@ const newRequest = ref({
   requesterName: "",
   topic: "",
   description: "",
-  date: "",
+  requestDate: "",
 });
 
 const requestStore = useRequestStore();
@@ -14,7 +14,9 @@ const requestStore = useRequestStore();
 const handleSubmit = async () => {
   try {
     console.log("Submitting request:", newRequest.value);
-    await requestStore.addRequest(newRequest.value);
+    let cleanRequest = {...newRequest.value};
+    console.log(cleanRequest);
+    await requestStore.addRequest(cleanRequest);
     resetForm();
   } catch (error) {
     console.error("Error al enviar la solicitud:", error);
@@ -26,7 +28,7 @@ const resetForm = () => {
   newRequest.value.requesterName = "";
   newRequest.value.topic = "";
   newRequest.value.description = "";
-  newRequest.value.date = "";
+  newRequest.value.requestDate = "";
 };
 </script>
 
@@ -75,16 +77,16 @@ const resetForm = () => {
           <div class="mb-3">
             <label for="date" class="form-label">Date</label>
             <input
-              v-model="newRequest.date"
-              type="date"
+              v-model="newRequest.requestDate"
+              type="datetime-local"
               class="form-control"
               id="date"
               required
             />
           </div>
           <button type="submit" class="btn btn-primary m-1">Submit</button>
-          <button type="reset" class="btn btn-secondary m-1">Reset</button>
-          <router-link to="/request-list" class="btn btn-link">Cancel</router-link>
+          <button type="reset" class="btn btn-secondary m-1" @click="resetForm">Reset</button>
+          <router-link to="/request-list" id="cancel-btn" class="btn btn-link">Cancel</router-link>
         </form>
       </div>
     </div>

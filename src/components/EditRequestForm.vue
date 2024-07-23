@@ -15,13 +15,15 @@ const request = ref({
   requesterName: '',
   topic: '',
   description: '',
-  date: '',
+  requestDate: '',
 });
 
 onMounted(() => {
   const selectedRequest = requestStore.getRequestById(props.id);
   if (selectedRequest) {
+    console.log(selectedRequest)
     request.value = { ...selectedRequest };
+    console.log(request.value);
   }
 });
 
@@ -84,8 +86,8 @@ const cancelEdit = () => {
           <div class="mb-3">
             <label for="date" class="form-label">Date</label>
             <input
-              v-model="request.date"
-              type="date"
+              v-model="request.requestDate"
+              type="datetime-local"
               class="form-control"
               id="date"
               required

@@ -22,7 +22,7 @@ const router = createRouter({
       component: NewRequest 
     },
     { 
-      path: '/edit-request/:id', 
+      path: '/edit-request', 
       name: 'EditRequestView', 
       component: EditRequest
     }

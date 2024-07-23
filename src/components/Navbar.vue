@@ -31,7 +31,7 @@
             </li>
             <li
             >
-              <RouterLink to="/edit-request/:id" class="nav-link">Edit Request</RouterLink>
+              <RouterLink to="/edit-request" class="nav-link">Edit Request</RouterLink>
             </li>
           </ul>
         </div>
