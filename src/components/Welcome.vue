@@ -1,6 +1,7 @@
 <template>
-  <div class="container">
-    <div class="row">
+  <div class="container mt-4">
+    <h1>Welcome to SuperSupport!</h1>
+    <div class="row mt-4">
       <!-- review card -->
       <div class="col-lg-3 mb-3">
         <div id="cardreview" class="card no-border">
@@ -35,6 +36,18 @@
             </div>
           </div>
         </div>
+
+         <!-- cat card 3 -->
+         <div id="card3" class="card mb-3 no-border">
+              <div class="card-body text-center" >
+                <img
+                  src="./images/akubi_cat.png"
+                  class="img-fluid"
+                  alt="cat"
+                  style="max-height: 165px;"
+                />
+              </div>
+            </div>
 
         <!-- cat card 2 -->
         <div id="card2" class="card mb-3 no-border">
@@ -80,7 +93,12 @@ const comments = ref([
 ]);
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
+h1{
+  text-align: center;
+  color: #f6e9e9;
+ }
 
 #card1, #card2, #cardreview{
   background-color: #635d5d;
