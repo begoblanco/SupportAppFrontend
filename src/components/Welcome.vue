@@ -100,7 +100,7 @@ h1{
   color: #f6e9e9;
  }
 
-#card1, #card2, #cardreview{
+#card1, #card2, #card3, #cardreview{
   background-color: #635d5d;
   border-radius: 10px;
   color: #f6e9e9;
